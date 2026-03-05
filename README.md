@@ -1,6 +1,5 @@
 # CodeSense — Code Review Platform
 
-![CI](https://img.shields.io/github/actions/workflow/status/your-org/codesense/ci.yml?label=build)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6)
 ![Node](https://img.shields.io/badge/Node-20-339933)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-4169E1)
