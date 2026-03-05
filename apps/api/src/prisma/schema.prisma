@@ -1,0 +1,72 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String       @id @default(cuid())
+  githubId     String       @unique
+  username     String
+  avatarUrl    String?
+  email        String?
+  createdAt    DateTime     @default(now())
+  reviews      Review[]
+  repositories Repository[]
+}
+
+model Repository {
+  id        String      @id @default(cuid())
+  userId    String
+  user      User        @relation(fields: [userId], references: [id])
+  githubUrl String
+  name      String
+  language  String?
+  createdAt DateTime    @default(now())
+  reviews   Review[]
+  chunks    CodeChunk[]
+}
+
+model Review {
+  id           String       @id @default(cuid())
+  userId       String
+  user         User         @relation(fields: [userId], references: [id])
+  repositoryId String?
+  repository   Repository?  @relation(fields: [repositoryId], references: [id])
+  code         String       @db.Text
+  language     String
+  status       ReviewStatus @default(PENDING)
+  healthScore  Float?
+  findings     Json?
+  refactored   String?      @db.Text
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+  jobId        String?      @unique
+}
+
+model CodeChunk {
+  id           String     @id @default(cuid())
+  repositoryId String
+  repository   Repository @relation(fields: [repositoryId], references: [id])
+  functionName String
+  filePath     String
+  startLine    Int
+  endLine      Int
+  code         String     @db.Text
+  language     String
+  complexity   Int
+  embedding    Unsupported("vector(768)")
+  createdAt    DateTime   @default(now())
+
+  @@index([repositoryId])
+}
+
+enum ReviewStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+}

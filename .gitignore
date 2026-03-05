@@ -1,0 +1,8 @@
+node_modules
+dist
+.env
+.DS_Store
+coverage
+.turbo
+*.log
+apps/api/prisma/migrations
