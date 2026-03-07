@@ -4,16 +4,17 @@ import { z } from "zod";
 dotenv.config();
 
 const envSchema = z.object({
-  DATABASE_URL: z.string().min(1).default("postgresql://user:password@localhost:5432/codesense"),
-  REDIS_URL: z.string().min(1).default("redis://localhost:6379"),
-  GEMINI_API_KEY: z.string().min(1).default("local-dev-key"),
-  GITHUB_CLIENT_ID: z.string().min(1).default("local-dev-client-id"),
-  GITHUB_CLIENT_SECRET: z.string().min(1).default("local-dev-client-secret"),
-  GITHUB_WEBHOOK_SECRET: z.string().min(1).default("local-dev-webhook-secret"),
-  SESSION_SECRET: z.string().min(1).default("local-dev-session-secret"),
-  FRONTEND_URL: z.string().url().default("http://localhost:5173"),
-  NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
-  PORT: z.coerce.number().default(3001)
+  DATABASE_URL: z.string().min(1),
+  REDIS_URL: z.string().min(1),
+  GEMINI_API_KEY: z.string().min(1),
+  GEMINI_MODEL: z.string().min(1),
+  GITHUB_CLIENT_ID: z.string().min(1),
+  GITHUB_CLIENT_SECRET: z.string().min(1),
+  GITHUB_WEBHOOK_SECRET: z.string().min(1),
+  SESSION_SECRET: z.string().min(1),
+  FRONTEND_URL: z.string().url(),
+  NODE_ENV: z.enum(["development", "test", "production"]),
+  PORT: z.coerce.number()
 });
 
 const parsed = envSchema.safeParse(process.env);

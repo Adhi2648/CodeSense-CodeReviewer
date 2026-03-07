@@ -65,9 +65,7 @@ docker compose up -d
 npm install
 ```
 4. Configure environment:
-```bash
-cp .env.example .env
-```
+Fill in the `.env` file in the repository root with your local values.
 5. Generate Prisma client and run migration:
 ```bash
 npm --workspace @codesense/api run prisma:generate
@@ -136,7 +134,7 @@ codesense/
 │   └── shared/
 ├── .github/workflows/
 ├── docker-compose.yml
-└── .env.example
+└── .env
 ```
 
 ## Contributing

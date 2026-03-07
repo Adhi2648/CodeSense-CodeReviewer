@@ -3,9 +3,8 @@ import { z } from "zod";
 import { Finding, ReviewResult } from "@codesense/shared";
 import { env } from "../config/env.js";
 
-const MODEL = "gemini-2.0-flash";
-const GENERATE_URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`;
-const STREAM_URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:streamGenerateContent`;
+const GENERATE_URL = `https://generativelanguage.googleapis.com/v1beta/models/${env.GEMINI_MODEL}:generateContent`;
+const STREAM_URL = `https://generativelanguage.googleapis.com/v1beta/models/${env.GEMINI_MODEL}:streamGenerateContent`;
 
 const findingSchema = z.object({
   type: z.enum(["bug", "security", "performance", "smell"]),
