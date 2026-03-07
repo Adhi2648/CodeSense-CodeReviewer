@@ -136,17 +136,3 @@ codesense/
 ├── docker-compose.yml
 └── .env
 ```
-
-## Contributing
-1. Fork the repository and create a feature branch.
-2. Run local checks before opening a PR:
-```bash
-npm run typecheck
-npm run lint
-npm test
-```
-3. Open a PR with a clear summary, test evidence, and architecture notes for non-trivial changes.
-
-## License
-MIT
-
