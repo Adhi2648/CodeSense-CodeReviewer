@@ -6,11 +6,6 @@
 ![Redis](https://img.shields.io/badge/Redis-7-DC382D)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-## Demo
-[GIF placeholder: `demo.gif` — show the review flow]
-
-Live demo link: https://codesense.vercel.app
-
 ## Architecture
 ```text
 ┌─────────────────────────────────────────────────────────────────┐
