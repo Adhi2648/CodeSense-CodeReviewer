@@ -17,7 +17,7 @@
 ├──────────────┼──────────────────────────────────────────────────┤
 │  BullMQ      │  Async job queue (concurrency: 3)                │
 ├──────────────┼──────────────────────────────────────────────────┤
-│  Review Flow │  Tree-sitter → Chunker → Embeddings → Agent  │
+│  Review Flow │  Tree-sitter → Chunker → Embeddings → Agent      │
 ├──────────────┼──────────────────────────────────────────────────┤
 │  PostgreSQL  │  pgvector (embeddings) + Prisma ORM              │
 │  + Redis     │  Session store + BullMQ + Rate limiting          │
